@@ -1,12 +1,5 @@
 # Just-Another-Day
 
-<p align="center">
-  <img
-    src="https://github.com/user-attachments/assets/337bb215-8833-4653-b570-93c443bd9c11"
-    width="1200"
-    alt="Threat Hunt Cover Image"
-  />
-</p>
 
 <img width="2157" height="1423" alt="Screenshot 2026-07-14 133652" src="https://github.com/user-attachments/assets/0a820c26-d37e-42ec-8570-f80bea7c7dc1" />
 

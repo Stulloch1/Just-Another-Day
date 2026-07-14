@@ -128,7 +128,8 @@ _All flags below are collapsible for readability._
 <Add KQL here>
 
 ### 🖼️ Screenshot
-<Insert screenshot>
+<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
+
 
 ### 🛠️ Detection Recommendation
 

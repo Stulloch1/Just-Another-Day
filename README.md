@@ -5,7 +5,7 @@
 
 
 
-# 🛡️ Threat Hunt Report – <Hunt Name>
+# 🛡️ Threat Hunt Report – Just Another Day
 
 ---
 

@@ -26,8 +26,8 @@ On 11 March 2026, a routine posture review of the Nimbus Health billing analyst 
 ## 🧭 Scope & Environment
 
 - **Environment:** <Placeholder>  
-- **Data Sources:** <Placeholder>  
-- **Timeframe:** <YYYY-MM-DD → YYYY-MM-DD>  
+- **Data Sources:** Microsoft Sentinel / Microsoft Defender for Endpoint (MDE)
+- **Timeframe:** 2026-03-08 → 2026-03-18  
 
 ---
 

@@ -11,8 +11,7 @@
 
 ## 📌 Executive Summary
 
-<Brief, high-level overview of the threat hunt.  
-Answer what happened, why it matters, and what was discovered in 3–4 sentences.>
+On 11 March 2026, a routine posture review of the Nimbus Health billing analyst account (j.morris) revealed a confirmed external account compromise, with Microsoft Sentinel and Defender telemetry showing valid credentials used over RDP from a public IP address to access the billing workstation and pivot to the organization's file server using native Windows tools. The attacker accessed sensitive data beyond the user's normal responsibilities, including approved invoices, a modified audit-trail file, and payroll and employee awards records, indicating deliberate cross-department data collection. The absence of malware or exploit activity, combined with the external RDP source, confirms the incident was a valid account compromise (MITRE ATT&CK T1078) rather than malware infection or insider error.
 
 ---
 

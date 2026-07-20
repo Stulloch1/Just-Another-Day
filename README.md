@@ -72,8 +72,8 @@ On 11 March 2026, a routine posture review of the Nimbus Health billing analyst 
 
 | Flag | Technique Category | MITRE ID | Priority |
 |-----:|-------------------|----------|----------|
-| 1 | Initail Acess | T1078 | High |
-| 2 | <Placeholder> | <Placeholder> | High |
+| 1 | Initail Access-Remote Access source | T1078 | High |
+| 2 | Initial Access-Compromised User Account | <Placeholder> | High |
 | 3 | <Placeholder> | <Placeholder> | High |
 | 4 | <Placeholder> | <Placeholder> | Low |
 | 5 | <Placeholder> | <Placeholder> | Medium |

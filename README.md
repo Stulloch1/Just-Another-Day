@@ -73,25 +73,25 @@ On 11 March 2026, a routine posture review of the Nimbus Health billing analyst 
 | Flag | Technique Category | MITRE ID | Priority |
 |-----:|-------------------|----------|----------|
 | 1 | Initail Access-Remote Access source | T1078 | High |
-| 2 | Initial Access-Compromised User Account | <Placeholder> | High |
-| 3 | <Placeholder> | <Placeholder> | High |
-| 4 | <Placeholder> | <Placeholder> | Low |
-| 5 | <Placeholder> | <Placeholder> | Medium |
-| 6 | <Placeholder> | <Placeholder> | Medium |
-| 7 | <Placeholder> | <Placeholder> | Medium |
+| 2 | Initial Access-Compromised User Account | T1021 | High |
+| 3 | Initial Access-External Source Validation | <Placeholder> | High |
+| 4 |  Triage | <Placeholder> | Low |
+| 5 | Discovery | <Placeholder> | Medium |
+| 6 | Discovery-Target Selection | <Placeholder> | Medium |
+| 7 | Discovery-Domain-Wide Enumeration | <Placeholder> | Medium |
 | 8 | <Placeholder> | <Placeholder> | Medium |
-| 9 | <Placeholder> | <Placeholder> | High |
-| 10 | <Placeholder> | <Placeholder> | <Placeholder> |
-| 11 | <Placeholder> | <Placeholder> | <Placeholder> |
-| 12 | <Placeholder> | <Placeholder> | <Placeholder> |
-| 13 | <Placeholder> | <Placeholder> | <Placeholder> |
-| 14 | <Placeholder> | <Placeholder> | <Placeholder> |
-| 15 | <Placeholder> | <Placeholder> | <Placeholder> |
-| 16 | <Placeholder> | <Placeholder> | <Placeholder> |
-| 17 | <Placeholder> | <Placeholder> | <Placeholder> |
-| 18 | <Placeholder> | <Placeholder> | <Placeholder> |
-| 19 | <Placeholder> | <Placeholder> | <Placeholder> |
-| 20 | <Placeholder> | <Placeholder> | <Placeholder> |
+| 9 | Collection-Reaching beyond | T1005 | High |
+| 10 | Collection-Data Reaching Beyond | T1005 | <Placeholder> |
+| 11 | Collection/Defense Evasion-Audit Trail Tampering | <Placeholder> | High |
+| 12 | <Placeholder> | <Placeholder> | High |
+| 13 | <Placeholder> | <Placeholder> | Medium |
+| 14 | <Placeholder> | <Placeholder> | High |
+| 15 | <Placeholder> | <Placeholder> | Low |
+| 16 | <Placeholder> | <Placeholder> | Medium |
+| 17 | <Placeholder> | <Placeholder> | Medium |
+| 18 | <Placeholder> | <Placeholder> | High |
+| 19 | <Placeholder> | <Placeholder> | Medium |
+| 20 | <Placeholder> | <Placeholder> | High |
 
 ---
 

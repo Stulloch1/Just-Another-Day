@@ -72,15 +72,15 @@ On 11 March 2026, a routine posture review of the Nimbus Health billing analyst 
 
 | Flag | Technique Category | MITRE ID | Priority |
 |-----:|-------------------|----------|----------|
-| 1 | <Placeholder> | <Placeholder> | <Placeholder> |
-| 2 | <Placeholder> | <Placeholder> | <Placeholder> |
-| 3 | <Placeholder> | <Placeholder> | <Placeholder> |
-| 4 | <Placeholder> | <Placeholder> | <Placeholder> |
-| 5 | <Placeholder> | <Placeholder> | <Placeholder> |
-| 6 | <Placeholder> | <Placeholder> | <Placeholder> |
-| 7 | <Placeholder> | <Placeholder> | <Placeholder> |
-| 8 | <Placeholder> | <Placeholder> | <Placeholder> |
-| 9 | <Placeholder> | <Placeholder> | <Placeholder> |
+| 1 | Initail Acess | T1078 | High |
+| 2 | <Placeholder> | <Placeholder> | High |
+| 3 | <Placeholder> | <Placeholder> | High |
+| 4 | <Placeholder> | <Placeholder> | Low |
+| 5 | <Placeholder> | <Placeholder> | Medium |
+| 6 | <Placeholder> | <Placeholder> | Medium |
+| 7 | <Placeholder> | <Placeholder> | Medium |
+| 8 | <Placeholder> | <Placeholder> | Medium |
+| 9 | <Placeholder> | <Placeholder> | High |
 | 10 | <Placeholder> | <Placeholder> | <Placeholder> |
 | 11 | <Placeholder> | <Placeholder> | <Placeholder> |
 | 12 | <Placeholder> | <Placeholder> | <Placeholder> |

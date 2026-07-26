@@ -83,15 +83,15 @@ On 11 March 2026, a routine posture review of the Nimbus Health billing analyst 
 | 9 | Collection-Reaching beyond | T1005 | High |
 | 10 | Collection-Data Reaching Beyond | T1005 | <Placeholder> |
 | 11 | Collection/Defense Evasion-Audit Trail Tampering | <Placeholder> | High |
-| 12 | <Placeholder> | <Placeholder> | High |
-| 13 | <Placeholder> | <Placeholder> | Medium |
-| 14 | <Placeholder> | <Placeholder> | High |
-| 15 | <Placeholder> | <Placeholder> | Low |
-| 16 | <Placeholder> | <Placeholder> | Medium |
-| 17 | <Placeholder> | <Placeholder> | Medium |
-| 18 | <Placeholder> | <Placeholder> | High |
-| 19 | <Placeholder> | <Placeholder> | Medium |
-| 20 | <Placeholder> | <Placeholder> | High |
+| 12 | Collection/Staging-Disguised File Movement | <Placeholder> | High |
+| 13 | Collecton-Scope Expansion | <Placeholder> | Medium |
+| 14 | Lateral Movement-Onward Hops | <Placeholder> | High |
+| 15 | Lateral Movement Triage-Ruling Out a Dead-End Host | <Placeholder> | Low |
+| 16 | Discovery-Privilege Enumeration| <Placeholder> | Medium |
+| 17 | Discovery-Share Enumeration | <Placeholder> | Medium |
+| 18 | Collecton-Cross Employee Data Access | <Placeholder> | High |
+| 19 | Collection | <Placeholder> | Medium |
+| 20 |Judgement-Root Cause | <Placeholder> | High |
 
 ---
 

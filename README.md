@@ -90,7 +90,7 @@ On 11 March 2026, a routine posture review of the Nimbus Health billing analyst 
 | 16 | Discovery-Privilege Enumeration| <Placeholder> | Medium |
 | 17 | Discovery-Share Enumeration | <Placeholder> | Medium |
 | 18 | Collecton-Cross Employee Data Access | <Placeholder> | High |
-| 19 | Collection | <Placeholder> | Medium |
+| 19 | Collection-Scope Summary | <Placeholder> | Medium |
 | 20 |Judgement-Root Cause | <Placeholder> | High |
 
 ---

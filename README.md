@@ -79,7 +79,7 @@ On 11 March 2026, a routine posture review of the Nimbus Health billing analyst 
 | 5 | Discovery | <Placeholder> | Medium |
 | 6 | Discovery-Target Selection | <Placeholder> | Medium |
 | 7 | Discovery-Domain-Wide Enumeration | <Placeholder> | Medium |
-| 8 | <Placeholder> | <Placeholder> | Medium |
+| 8 | Discovery-Local Network Mapping Preceeding Pivot | <Placeholder> | Medium |
 | 9 | Collection-Reaching beyond | T1005 | High |
 | 10 | Collection-Data Reaching Beyond | T1005 | <Placeholder> |
 | 11 | Collection/Defense Evasion-Audit Trail Tampering | <Placeholder> | High |

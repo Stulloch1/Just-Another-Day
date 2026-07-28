@@ -64,7 +64,7 @@ On 11 March 2026, a routine posture review of the Nimbus Health billing analyst 
 
 ## 🧠 Hunt Overview
 
-<High-level narrative describing the attack lifecycle, key behaviors observed, and why this hunt matters.>
+This hunt documents a full intrusion lifecycle on the Nimbus Health Windows estate, beginning with valid account abuse and external remote access, progressing through network reconnaissance and lateral movement to a file server, and concluding with cross-departmental data collection that reached beyond the compromised account's authorized role. 
 
 ---
 

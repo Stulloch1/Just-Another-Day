@@ -174,6 +174,78 @@ _All flags below are collapsible for readability._
 
 </details>
 
+<details>
+<summary id="-flag-3">🚩 <strong>Flag 3: <Technique Name></strong></summary>
+
+### 🎯 Objective
+<What the attacker was trying to accomplish>
+
+### 📌 Finding
+<High-level description of the activity>
+
+### 🔍 Evidence
+
+| Field | Value |
+|------|-------|
+| Host | <Placeholder> |
+| Timestamp | <Placeholder> |
+| Process | <Placeholder> |
+| Parent Process | <Placeholder> |
+| Command Line | <Placeholder> |
+
+### 💡 Why it matters
+<Explain impact, risk, and relevance>
+
+### 🔧 KQL Query Used
+<Add KQL here>
+
+### 🖼️ Screenshot
+<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
+
+
+### 🛠️ Detection Recommendation
+
+**Hunting Tip:**  
+<Actionable guidance for defenders>
+
+</details>
+
+<details>
+<summary id="-flag-4">🚩 <strong>Flag 4: <Technique Name></strong></summary>
+
+### 🎯 Objective
+<What the attacker was trying to accomplish>
+
+### 📌 Finding
+<High-level description of the activity>
+
+### 🔍 Evidence
+
+| Field | Value |
+|------|-------|
+| Host | <Placeholder> |
+| Timestamp | <Placeholder> |
+| Process | <Placeholder> |
+| Parent Process | <Placeholder> |
+| Command Line | <Placeholder> |
+
+### 💡 Why it matters
+<Explain impact, risk, and relevance>
+
+### 🔧 KQL Query Used
+<Add KQL here>
+
+### 🖼️ Screenshot
+<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
+
+
+### 🛠️ Detection Recommendation
+
+**Hunting Tip:**  
+<Actionable guidance for defenders>
+
+</details>
+
 <!-- Duplicate Flag 1 section for Flags 2–20 -->
 
 ---

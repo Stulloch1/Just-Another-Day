@@ -136,7 +136,6 @@ _All flags below are collapsible for readability._
 <Actionable guidance for defenders>
 
 </details>
----
 
 ---
 <details>

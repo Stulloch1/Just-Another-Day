@@ -79,7 +79,7 @@ This hunt documents a full intrusion lifecycle on the Nimbus Health Windows esta
 | 5 | Discovery | T1033 | Medium |
 | 6 | Discovery-Target Selection | T1018 | Medium |
 | 7 | Discovery-Domain-Wide Enumeration | T1087 | Medium |
-| 8 | Discovery-Local Network Mapping Preceeding Pivot | T1016 & T1018 | Medium |
+| 8 | Discovery-Local Network Mapping Preceding Pivot | T1016, T1018 | Medium |
 | 9 | Collection-Reaching beyond | T1009 | High |
 | 10 | Collection-Data Reaching Beyond | T1005 | <Placeholder> |
 | 11 | Collection/Defense Evasion-Audit Trail Tampering | T1005 | High |

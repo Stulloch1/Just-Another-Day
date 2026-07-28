@@ -395,6 +395,7 @@ _All flags below are collapsible for readability._
 <Actionable guidance for defenders>
 
 </details>
+
 ---
 <details>
 <summary id="-flag-9">🚩 <strong>Flag 9: <Technique Name></strong></summary>
@@ -431,6 +432,7 @@ _All flags below are collapsible for readability._
 <Actionable guidance for defenders>
 
 </details>
+
 ---
 <details>
 <summary id="-flag-10">🚩 <strong>Flag 10: <Technique Name></strong></summary>
@@ -467,6 +469,7 @@ _All flags below are collapsible for readability._
 <Actionable guidance for defenders>
 
 </details>
+
 ---
 <details>
 <summary id="-flag-11">🚩 <strong>Flag 11: <Technique Name></strong></summary>
@@ -503,6 +506,7 @@ _All flags below are collapsible for readability._
 <Actionable guidance for defenders>
 
 </details>
+
 ---
 <details>
 <summary id="-flag-12">🚩 <strong>Flag 12: <Technique Name></strong></summary>
@@ -539,6 +543,7 @@ _All flags below are collapsible for readability._
 <Actionable guidance for defenders>
 
 </details>
+
 ---
 <details>
 <summary id="-flag-13">🚩 <strong>Flag 13: <Technique Name></strong></summary>
@@ -575,6 +580,7 @@ _All flags below are collapsible for readability._
 <Actionable guidance for defenders>
 
 </details>
+
 ---
 <details>
 <summary id="-flag-14">🚩 <strong>Flag 14: <Technique Name></strong></summary>
@@ -611,6 +617,7 @@ _All flags below are collapsible for readability._
 <Actionable guidance for defenders>
 
 </details>
+
 ---
 <details>
 <summary id="-flag-15">🚩 <strong>Flag 15: <Technique Name></strong></summary>
@@ -647,6 +654,7 @@ _All flags below are collapsible for readability._
 <Actionable guidance for defenders>
 
 </details>
+
 ---
 <details>
 <summary id="-flag-16">🚩 <strong>Flag 16: <Technique Name></strong></summary>
@@ -683,6 +691,7 @@ _All flags below are collapsible for readability._
 <Actionable guidance for defenders>
 
 </details>
+
 ---
 <details>
 <summary id="-flag-17">🚩 <strong>Flag 17: <Technique Name></strong></summary>
@@ -719,6 +728,7 @@ _All flags below are collapsible for readability._
 <Actionable guidance for defenders>
 
 </details>
+
 ---
 <details>
 <summary id="-flag-18">🚩 <strong>Flag 18: <Technique Name></strong></summary>
@@ -755,6 +765,7 @@ _All flags below are collapsible for readability._
 <Actionable guidance for defenders>
 
 </details>
+
 ---
 <details>
 <summary id="-flag-19">🚩 <strong>Flag 19: <Technique Name></strong></summary>
@@ -791,6 +802,7 @@ _All flags below are collapsible for readability._
 <Actionable guidance for defenders>
 
 </details>
+
 ---
 <details>
 <summary id="-flag-20">🚩 <strong>Flag 20: <Technique Name></strong></summary>

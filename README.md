@@ -74,24 +74,24 @@ On 11 March 2026, a routine posture review of the Nimbus Health billing analyst 
 |-----:|-------------------|----------|----------|
 | 1 | Initail Access-Remote Access source | T1078 | High |
 | 2 | Initial Access-Compromised User Account | T1021 | High |
-| 3 | Initial Access-External Source Validation | <Placeholder> | High |
-| 4 |  Triage | <Placeholder> | Low |
-| 5 | Discovery | <Placeholder> | Medium |
-| 6 | Discovery-Target Selection | <Placeholder> | Medium |
-| 7 | Discovery-Domain-Wide Enumeration | <Placeholder> | Medium |
-| 8 | Discovery-Local Network Mapping Preceeding Pivot | <Placeholder> | Medium |
-| 9 | Collection-Reaching beyond | T1005 | High |
+| 3 | Initial Access-External Source Validation | T1078 | High |
+| 4 |  Triage-Ruling Out Benign | N/A | Low |
+| 5 | Discovery | T1033 | Medium |
+| 6 | Discovery-Target Selection | T1018 | Medium |
+| 7 | Discovery-Domain-Wide Enumeration | T1087 | Medium |
+| 8 | Discovery-Local Network Mapping Preceeding Pivot | T1016 & T1018 | Medium |
+| 9 | Collection-Reaching beyond | T1009 | High |
 | 10 | Collection-Data Reaching Beyond | T1005 | <Placeholder> |
-| 11 | Collection/Defense Evasion-Audit Trail Tampering | <Placeholder> | High |
-| 12 | Collection/Staging-Disguised File Movement | <Placeholder> | High |
-| 13 | Collecton-Scope Expansion | <Placeholder> | Medium |
-| 14 | Lateral Movement-Onward Hops | <Placeholder> | High |
-| 15 | Lateral Movement Triage-Ruling Out a Dead-End Host | <Placeholder> | Low |
-| 16 | Discovery-Privilege Enumeration| <Placeholder> | Medium |
-| 17 | Discovery-Share Enumeration | <Placeholder> | Medium |
-| 18 | Collecton-Cross Employee Data Access | <Placeholder> | High |
-| 19 | Collection-Scope Summary | <Placeholder> | Medium |
-| 20 |Judgement-Root Cause | <Placeholder> | High |
+| 11 | Collection/Defense Evasion-Audit Trail Tampering | T1005 | High |
+| 12 | Collection/Staging-Disguised File Movement | T1074,T1005 | High |
+| 13 | Collecton-Scope Expansion | T1005 | Medium |
+| 14 | Lateral Movement-Onward Hops | T1021.001 | High |
+| 15 | Lateral Movement Triage-Ruling Out a Dead-End Host | T1021.001 | Low |
+| 16 | Discovery-Privilege Enumeration| T1069,T1033 | Medium |
+| 17 | Discovery-Share Enumeration | T1135 | Medium |
+| 18 | Collecton-Cross Employee Data Access | T1005 | High |
+| 19 | Collection-Scope Summary | T1005 | Medium |
+| 20 |Judgement-Root Cause | T1078 | High |
 
 ---
 

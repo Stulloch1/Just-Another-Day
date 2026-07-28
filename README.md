@@ -136,6 +136,7 @@ _All flags below are collapsible for readability._
 <Actionable guidance for defenders>
 
 </details>
+---
 
 ---
 <details>
@@ -174,6 +175,7 @@ _All flags below are collapsible for readability._
 
 </details>
 
+---
 <details>
 <summary id="-flag-3">🚩 <strong>Flag 3: <Technique Name></strong></summary>
 
@@ -210,6 +212,7 @@ _All flags below are collapsible for readability._
 
 </details>
 
+---
 <details>
 <summary id="-flag-4">🚩 <strong>Flag 4: <Technique Name></strong></summary>
 

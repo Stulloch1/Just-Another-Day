@@ -105,24 +105,23 @@ _All flags below are collapsible for readability._
 <summary id="-flag-1">🚩 <strong>Flag 1: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-<What the attacker was trying to accomplish>
+Determine whether the account's remote sessions originated from a legitimate internal source or an external one.
 
 ### 📌 Finding
-<High-level description of the activity>
+The account's successful RDP session originated from a public, non-internal IP address, not from inside the clinic's network.
 
 ### 🔍 Evidence
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Host | nh-wks-bill-01.corp.nimbushealth.com |
+| Timestamp | 2026-03-09 01:14:57 UTC |
+| Logon Type | Remote Interactive |
+| Account | j.morrison |
+| Remote IP | 193.36.225.245 |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
-
+A Remote Interactive (RDP) session is a full, interactive desktop session not a background or file-share connection. Combined with an external IP, this rules out normal on-site clinic work and establishes the true entry vector for the intrusion.
 ### 🔧 KQL Query Used
 <Add KQL here>
 

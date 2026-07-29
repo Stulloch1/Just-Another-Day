@@ -657,23 +657,23 @@ Confirming an absence of activity is itself a finding it prevents wasted effort 
 <summary id="-flag-16">🚩 <strong>Flag 16: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-<What the attacker was trying to accomplish>
+Identify the first command run on the file server after the account landed there.
 
 ### 📌 Finding
-<High-level description of the activity>
+The account ran whoami /groups to check its privilege level and group memberships on the new host.
 
 ### 🔍 Evidence
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Host | nh-fs-01.corp.nimbushealth.com |
+| Timestamp | Immediately following 13:36:50 logon |
+| Process |whoami.exe |
+| Parent Process | cmd.exe |
+| Command Line | whoami /groups |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
+This is the attacker confirming what access their pivot actually bought them — a necessary step before deciding what to collect next on the new host.
 
 ### 🔧 KQL Query Used
 <Add KQL here>

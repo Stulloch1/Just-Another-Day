@@ -364,7 +364,7 @@ The account ran net.exe view /domain:nimbus, enumerating every host registered i
 <summary id="-flag-8">🚩 <strong>Flag 8: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-<What the attacker was trying to accomplish>
+Determine what the account did in the two minutes immediately preceding its pivot to another host.
 
 ### 📌 Finding
 <High-level description of the activity>
@@ -623,24 +623,21 @@ The account ran net.exe view /domain:nimbus, enumerating every host registered i
 <summary id="-flag-15">🚩 <strong>Flag 15: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-<What the attacker was trying to accomplish>
-
+Determine whether the account actually did anything on the IT workstation hop, or if it was a dead end.
 ### 📌 Finding
-<High-level description of the activity>
-
+Only normal Windows profile-initialization activity occurred; no tools, commands, or discovery activity were run.
 ### 🔍 Evidence
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Host | nh-wks-it-01.corp.nimbushealth.com |
+| Timestamp | Immediately after 13:27:05 |
+| Process | Standard Windows first-logon processes only |
+| Parent Process | userinit.exe / explorer.exe |
+| Command Line | no attacker-run commands observed |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
-
+Confirming an absence of activity is itself a finding it prevents wasted effort treating every touched host as equally compromised, and correctly redirects focus to the file server as the real second stage.
 ### 🔧 KQL Query Used
 <Add KQL here>
 

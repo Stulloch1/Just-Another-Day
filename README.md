@@ -694,23 +694,22 @@ This is the attacker confirming what access their pivot actually bought them —
 <summary id="-flag-17">🚩 <strong>Flag 17: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-<What the attacker was trying to accomplish>
-
+Identify the command used to enumerate shares available on the file server.
 ### 📌 Finding
-<High-level description of the activity>
+The account ran net share locally on the file server, listing every share it was exposing.
 
 ### 🔍 Evidence
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Host | nh-fs-01.corp.nimbushealth.com |
+| Timestamp | Immediately following whoami /groups |
+| Process | net.exe |
+| Parent Process | cmd.exe |
+| Command Line | net share |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
+This maps every available data source on the file server, directly setting up the targeted collection that follows — payroll, HR, and billing records.
 
 ### 🔧 KQL Query Used
 <Add KQL here>

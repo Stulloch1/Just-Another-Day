@@ -141,23 +141,22 @@ A Remote Interactive (RDP) session is a full, interactive desktop session not a 
 <summary id="-flag-2">🚩 <strong>Flag 2: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-<What the attacker was trying to accomplish>
+Identify which account is driving the suspicious remote sessions.
 
 ### 📌 Finding
-<High-level description of the activity>
-
+The account behind the anomalous RDP activity is j.morris, a billing submissions analyst.
 ### 🔍 Evidence
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Host | nh-wks-bill-01.corp.nimbushealth.com |
+| Timestamp | 2026-03-09 01:14:57 UTC |
+| Account Name | <Placeholder> |
+|Logon Type | Remote Interactive |
+| Remote IP | 193.36.225.245 |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
+Naming the account establishes the identity being abused throughout the entire intrusion chain. Every subsequent flag traces back to this one credential — confirming this is a valid-account compromise (T1078), not a rogue or unknown identity.
 
 ### 🔧 KQL Query Used
 <Add KQL here>

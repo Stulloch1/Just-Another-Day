@@ -151,7 +151,7 @@ The account behind the anomalous RDP activity is j.morris, a billing submissions
 |------|-------|
 | Host | nh-wks-bill-01.corp.nimbushealth.com |
 | Timestamp | 2026-03-09 01:14:57 UTC |
-| Account Name | <Placeholder> |
+| Account Name | j.morris |
 |Logon Type | Remote Interactive |
 | Remote IP | 193.36.225.245 |
 

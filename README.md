@@ -327,20 +327,20 @@ _All flags below are collapsible for readability._
 <summary id="-flag-7">🚩 <strong>Flag 7: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-<What the attacker was trying to accomplish>
+Identify the command used to expand reconnaissance from the local subnet to the entire domain.
 
 ### 📌 Finding
-<High-level description of the activity>
+The account ran net.exe view /domain:nimbus, enumerating every host registered in the domain.
 
 ### 🔍 Evidence
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Host | nh-wks-bill-01.corp.nimbushealth.com |
+| Timestamp | 2026-03-11 13:17:35 |
+| Process | net.exe |
+| Parent Process | cmd.exe |
+| Command Line | "net.exe" view /domain:nimbus |
 
 ### 💡 Why it matters
 <Explain impact, risk, and relevance>

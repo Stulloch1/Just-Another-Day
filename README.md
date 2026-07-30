@@ -707,7 +707,7 @@ The account ran net share locally on the file server, listing every share it was
 | Command Line | net share |
 
 ### 💡 Why it matters
-This maps every available data source on the file server, directly setting up the targeted collection that follows — payroll, HR, and billing records.
+This maps every available data source on the file server, directly setting up the targeted collection that follows payroll, HR, and billing records.
 
 ### 🔧 KQL Query Used
 <Add KQL here>

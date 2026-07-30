@@ -177,7 +177,7 @@ Naming the account establishes the identity being abused throughout the entire i
 <summary id="-flag-3">🚩 <strong>Flag 3: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-<What the attacker was trying to accomplish>
+Confirm the remote session source is genuinely external and not a misread internal address.
 
 ### 📌 Finding
 <High-level description of the activity>
@@ -193,7 +193,7 @@ Naming the account establishes the identity being abused throughout the entire i
 | Command Line | <Placeholder> |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
+This validation step removes any doubt that the session could be an employee VPN'd in from home or a misconfigured internal address. It's the evidence that anchors the "external compromise, not insider" conclusion for the rest of the hunt.
 
 ### 🔧 KQL Query Used
 <Add KQL here>
@@ -214,23 +214,23 @@ Naming the account establishes the identity being abused throughout the entire i
 <summary id="-flag-4">🚩 <strong>Flag 4: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-<What the attacker was trying to accomplish>
+Determine whether the first chronological event in the account's activity — a burst of deletions — is attacker behavior or routine noise.
 
 ### 📌 Finding
-<High-level description of the activity>
+The early deletion burst is routine application self-maintenance, not attacker anti-forensics.
 
 ### 🔍 Evidence
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Host | nh-wks-bill-01.corp.nimbushealth.com |
+| Timestamp | Early in account timeline |
+| Action Type | FileDeleted |
+| Initiating Process | Application/system process |
+| Path Pattern | Cache/temp paths, not staging directories |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
+Treating this noise as signal would have sent the investigation down a false lead before the real intrusion activity even started. Validating "what's not the intruder" is as important as finding what is.
 
 ### 🔧 KQL Query Used
 <Add KQL here>

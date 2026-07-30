@@ -251,23 +251,23 @@ Treating this noise as signal would have sent the investigation down a false lea
 <summary id="-flag-5">🚩 <strong>Flag 5: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-<What the attacker was trying to accomplish>
+Identify the first hands-on-keyboard commands run by the account to orient itself after landing.
 
 ### 📌 Finding
-<High-level description of the activity>
+A deliberate five-command burst (whoami, hostname, net use, net view, net view \\NH-FS-01) was run in quick succession.
 
 ### 🔍 Evidence
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Host | nh-wks-bill-01.corp.nimbushealth.com |
+| Timestamp | 2026-03-11 12:43–12:45 |
+| Process | net.exe / whoami.exe / hostname.exe |
+| Parent Process | cmd.exe |
+| Command Line | whoami, hostname, net use, net view, net view \NH-FS-01 |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
+This burst is the attacker's first situational-awareness pass confirming identity, host, and nearby network resources. It marks the transition from "just logged in" to "actively operating."
 
 ### 🔧 KQL Query Used
 <Add KQL here>
@@ -288,23 +288,23 @@ Treating this noise as signal would have sent the investigation down a false lea
 <summary id="-flag-6">🚩 <strong>Flag 6: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-<What the attacker was trying to accomplish>
+Identify which specific host the final discovery command in the burst targeted.
 
 ### 📌 Finding
-<High-level description of the activity>
+The final command explicitly targets NH-FS-01, the central file server holding department shares.
 
 ### 🔍 Evidence
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Host | nh-wks-bill-01.corp.nimbushealth.com |
+| Timestamp | 2026-03-11 12:44:39 |
+| Process | net.exe |
+| Parent Process | cmd.exe |
+| Command Line | net view \NH-FS-01 |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
+Targeting a specific, named host — rather than sweeping the whole network — shows the attacker had already identified their next objective. This is deliberate target selection, not random probing.
 
 ### 🔧 KQL Query Used
 <Add KQL here>

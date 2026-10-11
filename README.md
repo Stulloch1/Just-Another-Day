@@ -128,10 +128,10 @@ A Remote Interactive (RDP) session is a full, interactive desktop session not a 
 ### Query Used
 ```
 DeviceProcessEvents
-| where Timestamp between (datetime(2025-05-23 00:00:00) ..datetime(2025-05-25 23:59:59) )
-|summarize ProcessCount = count()by DeviceName
-| where DeviceName startswith "a"
-|order by ProcessCount asc
+| where Timestamp between (datetime(2026-03-08)..datetime(2026-03-18))
+| where DeviceName == "nh-wks-bill-01.corp.nimbushealth.com"
+| summarize Processes=count() by AccountName
+| order by Processes desc
 ```
 
 

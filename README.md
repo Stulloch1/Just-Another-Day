@@ -125,8 +125,14 @@ A Remote Interactive (RDP) session is a full, interactive desktop session not a 
 ### 🔧 KQL Query Used
 <Add KQL here>
 
-### 🖼️ Screenshot
-<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
+### Query Used
+```
+DeviceProcessEvents
+| where Timestamp between (datetime(2025-05-23 00:00:00) ..datetime(2025-05-25 23:59:59) )
+|summarize ProcessCount = count()by DeviceName
+| where DeviceName startswith "a"
+|order by ProcessCount asc
+```
 
 
 ### 🛠️ Detection Recommendation

@@ -409,27 +409,33 @@ Recon scaled from one subnet to everything registered in the domain.
 Determine what the account did in the two minutes immediately preceding its pivot to another host.
 
 ### 📌 Finding
-<High-level description of the activity>
+They read the ARP table, then resolved addresses across 10.1.0.x with nslookup, finding the file server. They pivoted to a new host at 13:27.
 
 ### 🔍 Evidence
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Host | nh-wks-bill-01.corp.nimbushealth.com |
+| Timestamp |13:18–13:20	arp -a, then a series of nslookup commands|
+| Result | 10.1.0.x range resolved, including NH-FS-01 |
+| 13:27 | Hop to another host |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
+The recon was preparation for lateral movement, not idle curiosity.
 
 ### 🔧 KQL Query Used
 <Add KQL here>
 
-### 🖼️ Screenshot
-<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
-
+```
+### DeviceProcessEvents
+| where Timestamp between (datetime(2026-03-11 13:18:00)..datetime(2026-03-11 13:28:00))
+| where DeviceName == "nh-wks-bill-01.corp.nimbushealth.com"
+| where AccountName == "j.morris"
+| where FileName in~ ("arp.exe", "nslookup.exe")
+| project Timestamp, FileName, ProcessCommandLine
+| order by Timestamp asc
+```
+📌 *Answer:* `Mapped the local subnet (arp -a plus an nslookup sweep of 10.1.0.x), then pivoted to the file server.`
 
 ### 🛠️ Detection Recommendation
 

@@ -167,9 +167,15 @@ Naming the account establishes the identity being abused throughout the entire i
 ### 🔧 KQL Query Used
 <Add KQL here>
 
-### 🖼️ Screenshot
-<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
-
+```
+### DeviceLogonEvents
+| where Timestamp between (datetime(2026-03-08)..datetime(2026-03-18 23:59:59))
+| where DeviceName startswith "nh-" and DeviceName contains "bill"
+| where AccountName == "j.morris"
+| where ActionType == "LogonSuccess"
+| summarize Count=count() by LogonType
+```
+📌 *Answer:* `RemoteInteractive`
 
 ### 🛠️ Detection Recommendation
 

@@ -893,8 +893,15 @@ DeviceFileEvents
 ### 🔧 KQL Query Used
 <Add KQL here>
 
-### 🖼️ Screenshot
-<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
+```
+DeviceFileEvents
+| where Timestamp between (datetime(2026-03-11 12:50:00)..datetime(2026-03-11 14:30:00))
+| where DeviceName startswith "nh-"
+| where FolderPath contains @"\Shares\HR" or FileName contains "payroll"
+| project Timestamp, ActionType, FileName, PreviousFileName, FolderPath, InitiatingProcessAccountName
+| order by Timestamp asc
+```
+📌 *Answer:* `Broad HR data collection beyond payroll (multi-file HR collection: payroll and awards data.`
 
 
 ### 🛠️ Detection Recommendation
@@ -930,8 +937,15 @@ DeviceFileEvents
 ### 🔧 KQL Query Used
 <Add KQL here>
 
-### 🖼️ Screenshot
-<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
+```
+ DeviceFileEvents
+| where Timestamp between (datetime(2026-03-08)..datetime(2026-03-18))
+| where DeviceName startswith "nh-"
+| where ActionType == "FileCreated"
+| where FileName endswith ".exe" or FileName endswith ".dll" or FileName endswith ".ps1"
+| project Timestamp, DeviceName, FileName, FolderPath, InitiatingProcessAccountName
+```
+📌 *Answer:* `Compromised valid account used remotely from an external source; no malware or exploitation evidence.`
 
 
 ### 🛠️ Detection Recommendation

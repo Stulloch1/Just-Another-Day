@@ -133,7 +133,7 @@ DeviceProcessEvents
 | summarize Processes=count() by AccountName
 | order by Processes desc
 ```
-
+📌 *Answer:* `j.morris`
 
 ### 🛠️ Detection Recommendation
 

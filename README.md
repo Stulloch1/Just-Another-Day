@@ -967,9 +967,9 @@ DeviceFileEvents
 - <Placeholder>
 
 ### Recommendations
-- <Placeholder>
-- <Placeholder>
-- <Placeholder>
+- Contain and remediate the credential. Disable and reset j.morris, revoke active sessions, rotate any credentials reachable from the billing workstation and file server, and block 193.36.225.245. Treat the three hosts as in scope for review.
+- Remove direct RDP exposure and enforce MFA. Close inbound RDP from the internet, require VPN or a gateway with MFA for all remote access, and enable Network Level Authentication and account lockout policies.
+- Enforce least privilege and protect integrity of sensitive data. Restrict the billing role to the submissions and pending folders, lock the AuditTrail folder to reviewer and system accounts, and limit HR share access to HR staff. Alert on cross-share access and file renames into other departments’ folders.
 
 ---
 

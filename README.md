@@ -340,9 +340,15 @@ Targeting a specific, named host — rather than sweeping the whole network — 
 ### 🔧 KQL Query Used
 <Add KQL here>
 
-### 🖼️ Screenshot
-<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
-
+```
+### DeviceProcessEvents
+| where Timestamp between (datetime(2026-03-11 12:42:00)..datetime(2026-03-11 12:45:00))
+| where DeviceName == "nh-wks-bill-01.corp.nimbushealth.com"
+| where AccountName == "j.morris"
+| project Timestamp, FileName, ProcessCommandLine
+| order by Timestamp asc
+```
+📌 *Answer:* `NH-FS-01`
 
 ### 🛠️ Detection Recommendation
 

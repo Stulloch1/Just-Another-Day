@@ -198,11 +198,11 @@ Confirm the remote session source is genuinely external and not a misread intern
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Host | <nh-wks-bill-01.corp.nimbushealth.com> |
+| Timestamp | <2026-03-09 01:14:57 UTC> |
+| Account  | <j.morrison> |
+|Logon Type | <Network> |
+| Remote IP | <193.36.225.245> |
 
 ### 💡 Why it matters
 This validation step removes any doubt that the session could be an employee VPN'd in from home or a misconfigured internal address. It's the evidence that anchors the "external compromise, not insider" conclusion for the rest of the hunt.
@@ -210,9 +210,14 @@ This validation step removes any doubt that the session could be an employee VPN
 ### 🔧 KQL Query Used
 <Add KQL here>
 
-### 🖼️ Screenshot
-<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
+### DeviceLogonEvents
+| where Timestamp between (datetime(2026-03-08)..datetime(2026-03-18 23:59:59))
+| where DeviceName startswith "nh-"
+| where DeviceName contains "bill"
+| project Timestamp, DeviceName, AccountName, LogonType, RemoteIP
+| order by Timestamp asc
 
+📌 *Answer:* `193.36.225.245`
 
 ### 🛠️ Detection Recommendation
 

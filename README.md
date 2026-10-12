@@ -576,30 +576,36 @@ Altering the oversight record undermines the mechanism built to catch this misus
 <summary id="-flag-12">🚩 <strong>Flag 12: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-<What the attacker was trying to accomplish>
-
+Identify the payroll file as it ended up in the billing folder.
 ### 📌 Finding
-<High-level description of the activity>
+A payroll file was renamed to look like a billing exception. The leftover double .txt.txt extension gives it away.
 
 ### 🔍 Evidence
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Host | nh-fs-01  |
+| Timestamp | 2026-03-11 13:02:01 UTC |
+| Action Type | FIleRenamed |
+| Previous Name | temp_payroll_review_jmorris_20260311.txt.txt |
+| New Name | payroll_exception_reference_20260311.txt.txt |
+|Destination | Billing\2026-03\Exceptions |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
+This is the clearest evidence of deliberate staging: payroll data hidden in a share where it would not raise an eyebrow.
 
 ### 🔧 KQL Query Used
 <Add KQL here>
 
-### 🖼️ Screenshot
-<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
-
+```
+ DeviceFileEvents
+| where Timestamp between (datetime(2026-03-08)..datetime(2026-03-18))
+| where DeviceName startswith "nh-"
+| where FileName endswith ".txt.txt"
+| project Timestamp, ActionType, FileName, PreviousFileName, FolderPath, InitiatingProcessAccountName, DeviceName
+| order by Timestamp asc
+```
+📌 *Answer:* `payroll_exception_reference_20260311.txt.txt`
 
 ### 🛠️ Detection Recommendation
 
@@ -622,21 +628,26 @@ Altering the oversight record undermines the mechanism built to catch this misus
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Host | nh-fs-01.corp.nimbushealth.com |
+| Timestamp | 2026-03-11 13:00:24 UTC |
+| Action Type | FileModified |
+| Path | C:\Shares\HR\2026-03\Awards\quarterly_awards_shortlist_20260310.txt |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
+It widens the activity from one payroll grab to a sweep of HR content.
 
 ### 🔧 KQL Query Used
 <Add KQL here>
 
-### 🖼️ Screenshot
-<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
-
+```
+ DeviceFileEvents
+| where Timestamp between (datetime(2026-03-11T12:55:00Z)..datetime(2026-03-11T13:05:00Z))
+| where DeviceName startswith "nh-"
+| where FolderPath contains @"HR\2026-03\Awards"
+| project Timestamp, ActionType, FileName, PreviousFileName, FolderPath, InitiatingProcessAccountName, DeviceName
+| order by Timestamp asc
+```
+📌 *Answer:* `quarterly_awards_shortlist_20260310.txt`
 
 ### 🛠️ Detection Recommendation
 
@@ -650,30 +661,36 @@ Altering the oversight record undermines the mechanism built to catch this misus
 <summary id="-flag-14">🚩 <strong>Flag 14: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-<What the attacker was trying to accomplish>
+Name the two machines reached from the billing workstation.
 
 ### 📌 Finding
-<High-level description of the activity>
+Remote sessions were opened onto the IT workstation and the file server, sourced from the billing workstation’s internal IP.
 
 ### 🔍 Evidence
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Source IP | 10.1.0.207 (billing workstation) |
+| Timestamp | 13:27:05 UTC	nh-wks-it-01.corp.nimbushealth.com |
+| Timestamp | 13:36:50 UTC	nh-fs-01.corp.nimbushealth.com (two rows) |
+| Account | j.morris |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
+Pivoting from an internal address confirms lateral movement from a compromised launch point.
 
 ### 🔧 KQL Query Used
 <Add KQL here>
 
-### 🖼️ Screenshot
-<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
-
+```
+DeviceLogonEvents
+| where Timestamp between (datetime(2026-03-08)..datetime(2026-03-18))
+| where DeviceName startswith "nh-"
+| where LogonType contains "Remote"
+| where RemoteIP == "10.1.0.207"
+| project Timestamp, AccountName, DeviceName, RemoteIP, LogonType
+| order by Timestamp asc
+```
+📌 *Answer:* `nh-wks-it-01.corp.nimbushealth.com, nh-fs-01.corp.nimbushealth.com`
 
 ### 🛠️ Detection Recommendation
 
@@ -687,9 +704,9 @@ Altering the oversight record undermines the mechanism built to catch this misus
 <summary id="-flag-15">🚩 <strong>Flag 15: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-Determine whether the account actually did anything on the IT workstation hop, or if it was a dead end.
+Prove whether anything happened on the IT workstation.
 ### 📌 Finding
-Only normal Windows profile-initialization activity occurred; no tools, commands, or discovery activity were run.
+Only automatic Windows first-logon profile setup ran. The landing happened, the hands-on activity did not.
 ### 🔍 Evidence
 
 | Field | Value |
@@ -705,9 +722,15 @@ Confirming an absence of activity is itself a finding it prevents wasted effort 
 ### 🔧 KQL Query Used
 <Add KQL here>
 
-### 🖼️ Screenshot
-<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
-
+```
+DeviceProcessEvents
+| where Timestamp between (datetime(2026-03-11 13:27:00)..datetime(2026-03-11 14:30:00))
+| where DeviceName == "nh-wks-it-01.corp.nimbushealth.com"
+| where AccountName == "j.morris"
+| project Timestamp, FileName, ProcessCommandLine, InitiatingProcessFileName
+| order by Timestamp asc
+```
+📌 *Answer:* `IT workstation was only used for profile setup; no hands-on activity occurred.`
 
 ### 🛠️ Detection Recommendation
 
@@ -742,9 +765,14 @@ This is the attacker confirming what access their pivot actually bought them —
 ### 🔧 KQL Query Used
 <Add KQL here>
 
-### 🖼️ Screenshot
-<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
-
+ DeviceProcessEvents
+| where Timestamp between (datetime(2026-03-11 13:36:00)..datetime(2026-03-11 14:30:00))
+| where DeviceName == "nh-fs-01.corp.nimbushealth.com"
+| where AccountName == "j.morris"
+| project Timestamp, FileName, ProcessCommandLine
+| order by Timestamp asc
+```
+📌 *Answer:* `whoami /groups`
 
 ### 🛠️ Detection Recommendation
 
@@ -778,9 +806,15 @@ This maps every available data source on the file server, directly setting up th
 ### 🔧 KQL Query Used
 <Add KQL here>
 
-### 🖼️ Screenshot
-<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
-
+```
+ DeviceProcessEvents
+| where Timestamp between (datetime(2026-03-11 13:36:00)..datetime(2026-03-11 14:30:00))
+| where DeviceName == "nh-fs-01.corp.nimbushealth.com"
+| where AccountName == "j.morris"
+| project Timestamp, FileName, ProcessCommandLine
+| order by Timestamp asc
+```
+📌 *Answer:* `net share`
 
 ### 🛠️ Detection Recommendation
 
@@ -794,30 +828,36 @@ This maps every available data source on the file server, directly setting up th
 <summary id="-flag-18">🚩 <strong>Flag 18: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-<What the attacker was trying to accomplish>
+Identify the last file opened on the file server and whose it is.
 
 ### 📌 Finding
-<High-level description of the activity>
+A payroll review belonging to d.patel, the approval-queue user, opened by the billing account.
 
 ### 🔍 Evidence
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
+| Host | nh-fs-01.corp.nimbushealth.com |
 | Timestamp | <Placeholder> |
 | Process | <Placeholder> |
 | Parent Process | <Placeholder> |
 | Command Line | <Placeholder> |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
+The collection crossed individual employee and department boundaries, increasing privacy impact.
 
 ### 🔧 KQL Query Used
 <Add KQL here>
 
-### 🖼️ Screenshot
-<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
-
+```
+DeviceFileEvents
+| where Timestamp between (datetime(2026-03-11 13:36:00)..datetime(2026-03-11 14:30:00))
+| where DeviceName == "nh-fs-01.corp.nimbushealth.com"
+| where FileName contains "payroll_review"
+| project Timestamp, ActionType, FileName, FolderPath, InitiatingProcessAccountName
+| order by Timestamp asc
+```
+📌 *Answer:* `payroll_review_dpatel_20260311.txt (belongs to d.patel)`
 
 ### 🛠️ Detection Recommendation
 

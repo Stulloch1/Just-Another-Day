@@ -491,26 +491,32 @@ This is the first clear evidence of activity in a workflow stage the role should
 <summary id="-flag-10">🚩 <strong>Flag 10: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-<What the attacker was trying to accomplish>
+Identify the invoice handled inside the approval folder.
 
 ### 📌 Finding
-<High-level description of the activity>
+approved_pending_invoice_INV-664215_20260310.txt, which had already cleared sign-off.
 
 ### 🔍 Evidence
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Host | nh-fs-01.corp.nimbushealth.com |
+| Timestamp | 2026-03-10 12:09:49 UTC |
+| Action Type | FileCreated (initiated by system) |
+| Path | C:\Shares\Billing\2026-03\Approved\approved_pending_invoice_INV-664215_20260310.tx |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
+It confirms data in a stage outside the role’s remit was in play.
 
 ### 🔧 KQL Query Used
-<Add KQL here>
+< DeviceFileEvents
+| where Timestamp between (datetime(2026-03-08)..datetime(2026-03-18))
+| where DeviceName startswith "nh-"
+| where FileName contains "pending_invoice"
+    or FileName contains "approved_pending_invoice"
+    or FileName contains "INV-"
+| project Timestamp, DeviceName, FileName, FolderPath, ActionType, InitiatingProcessAccountName
+| order by Timestamp asc>
 
 ### 🖼️ Screenshot
 <img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />

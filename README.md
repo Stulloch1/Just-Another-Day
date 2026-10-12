@@ -975,7 +975,7 @@ DeviceFileEvents
 
 ## 🧾 Final Assessment
 
-<Concise executive-style conclusion summarizing risk, attacker sophistication, and defensive posture.>
+The Nimbus Health incident was an external compromise of a valid billing analyst account (j.morris), not an insider who forgot to hand back access and not a malware infection. The operator drove the account over RDP from a public IP (193.36.225.245) and used only native Windows tools (whoami, net, arp, nslookup). From the billing workstation they ran two recon bursts, mapped the local subnet, and pivoted by RDP to the file server (the IT workstation hop was a dead end with no hands-on activity). On the file server they reached into the approval stage, modified the audit trail, staged payroll material in the billing share under a disguised .txt.txt name, and collected HR files belonging to other employees (payroll and awards). No dropped binaries or exploitation were found, so the root cause is credential compromise (T1078), and the exposure includes payroll and HR data of employees outside the account holder’s scope.
 
 ---
 

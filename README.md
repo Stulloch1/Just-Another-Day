@@ -378,7 +378,7 @@ The account ran net.exe view /domain:nimbus, enumerating every host registered i
 | Command Line | "net.exe" view /domain:nimbus |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
+The recon was preparation for lateral movement, not idle curiosity.
 
 ### 🔧 KQL Query Used
 <Add KQL here>

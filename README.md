@@ -962,9 +962,8 @@ DeviceFileEvents
 ## 🚨 Detection Gaps & Recommendations
 
 ### Observed Gaps
-- <Placeholder>
-- <Placeholder>
-- <Placeholder>
+- Weak controls on remote access and sensitive data. An external RDP session succeeded on a business account, and a billing role could reach the approval stage, the audit trail, and HR shares. That points to internet-exposed RDP without effective MFA and overly broad file share permissions.
+- Detection and logging gaps. Nothing alerted on external RDP, recon bursts, or cross-department file access, so the account was found only through a manual posture review. File telemetry also attributes several events to system rather than the user, which weakens attribution, and there is no integrity protection on the audit trail.
 
 ### Recommendations
 - Contain and remediate the credential. Disable and reset j.morris, revoke active sessions, rotate any credentials reachable from the billing workstation and file server, and block 193.36.225.245. Treat the three hosts as in scope for review.

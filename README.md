@@ -509,10 +509,9 @@ approved_pending_invoice_INV-664215_20260310.txt, which had already cleared sign
 It confirms data in a stage outside the role’s remit was in play.
 
 ### 🔧 KQL Query Used
-< >
 
 ```
-### DeviceFileEvents
+ DeviceFileEvents
 | where Timestamp between (datetime(2026-03-08)..datetime(2026-03-18))
 | where DeviceName startswith "nh-"
 | where FileName contains "pending_invoice"

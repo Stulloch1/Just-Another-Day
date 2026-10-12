@@ -383,6 +383,7 @@ The account ran net.exe view /domain:nimbus, enumerating every host registered i
 ### 🔧 KQL Query Used
 <Add KQL here>
 
+```
 ### DeviceProcessEvents
 | where Timestamp between (datetime(2026-03-11 13:16:00)..datetime(2026-03-11 13:20:00))
 | where DeviceName == "nh-wks-bill-01.corp.nimbushealth.com"

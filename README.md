@@ -765,6 +765,7 @@ This is the attacker confirming what access their pivot actually bought them —
 ### 🔧 KQL Query Used
 <Add KQL here>
 
+```
  DeviceProcessEvents
 | where Timestamp between (datetime(2026-03-11 13:36:00)..datetime(2026-03-11 14:30:00))
 | where DeviceName == "nh-fs-01.corp.nimbushealth.com"

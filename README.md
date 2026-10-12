@@ -378,7 +378,7 @@ The account ran net.exe view /domain:nimbus, enumerating every host registered i
 | Command Line | "net.exe" view /domain:nimbus |
 
 ### 💡 Why it matters
-The recon was preparation for lateral movement, not idle curiosity.
+Recon scaled from one subnet to everything registered in the domain.
 
 ### 🔧 KQL Query Used
 <Add KQL here>

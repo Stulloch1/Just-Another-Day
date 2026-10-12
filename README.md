@@ -509,18 +509,19 @@ approved_pending_invoice_INV-664215_20260310.txt, which had already cleared sign
 It confirms data in a stage outside the role’s remit was in play.
 
 ### 🔧 KQL Query Used
-< DeviceFileEvents
+< >
+
+```
+### DeviceFileEvents
 | where Timestamp between (datetime(2026-03-08)..datetime(2026-03-18))
 | where DeviceName startswith "nh-"
 | where FileName contains "pending_invoice"
     or FileName contains "approved_pending_invoice"
     or FileName contains "INV-"
 | project Timestamp, DeviceName, FileName, FolderPath, ActionType, InitiatingProcessAccountName
-| order by Timestamp asc>
-
-### 🖼️ Screenshot
-<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
-
+| order by Timestamp asc
+```
+📌 *Answer:* `approved_pending_invoice_INV-664215_20260310.txt`
 
 ### 🛠️ Detection Recommendation
 

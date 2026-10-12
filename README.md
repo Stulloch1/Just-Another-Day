@@ -449,30 +449,35 @@ The recon was preparation for lateral movement, not idle curiosity.
 <summary id="-flag-9">🚩 <strong>Flag 9: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-<What the attacker was trying to accomplish>
+Identify the billing workflow folder outside a submissions analyst’s role.
 
 ### 📌 Finding
-<High-level description of the activity>
+The account reached into Approved, the sign-off stage downstream of where it belongs.
 
 ### 🔍 Evidence
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Host | nh-fs-01.corp.nimbushealth.com |
+| Account | j.morris |
+| Expected stage | Submission / Pending |
+| Folder | C:\Shares\Billing\2026-03\Approved |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
+This is the first clear evidence of activity in a workflow stage the role should never touch.
 
 ### 🔧 KQL Query Used
 <Add KQL here>
 
-### 🖼️ Screenshot
-<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
-
+```
+### DeviceFileEvents
+| where Timestamp between (datetime(2026-03-08)..datetime(2026-03-18))
+| where DeviceName startswith "nh-"
+| where FolderPath contains @"\Shares\Billing"
+| summarize Events=count() by FolderPath, InitiatingProcessAccountName
+| order by Events desc
+```
+📌 *Answer:* `Approved`
 
 ### 🛠️ Detection Recommendation
 

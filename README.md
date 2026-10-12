@@ -253,9 +253,16 @@ Treating this noise as signal would have sent the investigation down a false lea
 ### 🔧 KQL Query Used
 <Add KQL here>
 
-### 🖼️ Screenshot
-<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
-
+```
+### DeviceProcessEvents
+| where Timestamp between (datetime(2026-03-08)..datetime(2026-03-18))
+| where DeviceName == "nh-wks-bill-01.corp.nimbushealth.com"
+| where AccountName == "j.morris"
+| where ProcessCommandLine has_any ("del ", "erase", "rmdir", "rd ")
+| project Timestamp, FileName, ProcessCommandLine
+| order by Timestamp asc
+```
+📌 *Answer:* `Routine application cleanup (noise, not the intruder). The paths look like an application maintaining itself.`
 
 ### 🛠️ Detection Recommendation
 

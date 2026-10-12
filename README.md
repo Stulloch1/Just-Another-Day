@@ -534,31 +534,36 @@ It confirms data in a stage outside the role’s remit was in play.
 <summary id="-flag-11">🚩 <strong>Flag 11: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-<What the attacker was trying to accomplish>
-
+Identify the audit file modified.
 ### 📌 Finding
-<High-level description of the activity>
+review_audit_20260311.txt, a record meant to reflect the reviewer’s actions, not a submitter’s.
 
 ### 🔍 Evidence
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Host | nh-fs-01.corp.nimbushealth.com |
+| Timestamp | 2026-03-11 13:08:17 UTC |
+| Action Type | FileModified |
+| Initiating Account | system |
+| Path | C:\Shares\Billing\2026-03\AuditTrail\review_audit_20260311.txt |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
+Altering the oversight record undermines the mechanism built to catch this misuse.
 
 ### 🔧 KQL Query Used
 <Add KQL here>
 
-### 🖼️ Screenshot
-<img width="1212" height="854" alt="Screenshot 2026-07-11 162602" src="https://github.com/user-attachments/assets/fe55594b-7e0c-44bb-a909-c54c99f97e4a" />
-
-
+```
+ DeviceFileEvents
+| where Timestamp between (datetime(2026-03-11T12:50:00Z)..datetime(2026-03-11T13:10:00Z))
+| where DeviceName startswith "nh-"
+| where ActionType == "FileModified"
+| project Timestamp, FileName, FolderPath, InitiatingProcessAccountName, DeviceName
+| order by Timestamp asc
+```
+📌 *Answer:* `review_audit_20260311.txt`
+   
 ### 🛠️ Detection Recommendation
 
 **Hunting Tip:**  

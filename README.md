@@ -181,9 +181,9 @@ Naming the account establishes the identity being abused throughout the entire i
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
-</details>
 Baseline processes per account per host. Alert when a non-admin business account becomes a top process generator or appears on hosts outside its role.
+</details>
+
 ---
 <details>
 <summary id="-flag-3">🚩 <strong>Flag 3: <Technique Name></strong></summary>

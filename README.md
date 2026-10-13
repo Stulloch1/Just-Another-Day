@@ -872,23 +872,22 @@ DeviceFileEvents
 <summary id="-flag-19">🚩 <strong>Flag 19: <Technique Name></strong></summary>
 
 ### 🎯 Objective
-<What the attacker was trying to accomplish>
+Characterize the scope of what left HR.
 
 ### 📌 Finding
-<High-level description of the activity>
+Multiple HR files across different employees and functions in the same burst show a broad sweep, not a single opportunistic grab.
 
 ### 🔍 Evidence
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Host | nh-fs-01.corp.nimbushealth.com |
+| File 1 | temp_payroll_review_jmorris_20260311.txt.txt (payroll, staged) |
+| File 2 | quarterly_awards_shortlist_20260310.txt (awards) |
+| File 3 | payroll_review_dpatel_20260311.txt (another employee) |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
+Taken together, the files define the true breadth of data exposure for incident reporting.
 
 ### 🔧 KQL Query Used
 <Add KQL here>
@@ -925,14 +924,13 @@ DeviceFileEvents
 
 | Field | Value |
 |------|-------|
-| Host | <Placeholder> |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Host | nh-wks-bill-01, nh-wks-it-01, nh-fs-01 |
+| Access source | External IP 193.36.225.245 |
+|Tools observed | whoami, hostname, net, arp, nslookup |
+| Malware/exploit evidence | None found |
 
 ### 💡 Why it matters
-<Explain impact, risk, and relevance>
+Remediation is credential reset and access review, not malware eradication. Writing it up as insider curiosity would leave the real root cause unaddressed.
 
 ### 🔧 KQL Query Used
 <Add KQL here>

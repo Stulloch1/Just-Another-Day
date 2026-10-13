@@ -181,7 +181,7 @@ Naming the account establishes the identity being abused throughout the entire i
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+Alert on LogonType == "RemoteInteractive" for accounts that normally log on locally, especially business-role accounts on workstations.
 </details>
 
 ---
@@ -224,7 +224,7 @@ This validation step removes any doubt that the session could be an employee VPN
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+Flag successful RemoteInteractive or Network logons where RemoteIP is not in RFC1918 ranges. Enrich with geo and reputation, and watch for lookalike accounts (e.g., j.morris vs j.morrison).
 </details>
 
 ---
@@ -268,7 +268,7 @@ Treating this noise as signal would have sent the investigation down a false lea
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+Build a baseline of known maintenance deletion paths (cache, temp, update folders). Triage deletion bursts by path and initiating process before escalating, and suppress known-good patterns.
 </details>
 
 ---
@@ -311,7 +311,7 @@ This burst is the attacker's first situational-awareness pass confirming identit
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+Detect short bursts (under 5 minutes) of whoami, hostname, net use, net view from one account. Weight higher when the account is non-IT.
 </details>
 
 ---
@@ -354,7 +354,7 @@ Targeting a specific, named host — rather than sweeping the whole network — 
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+Alert on net view \\<server> from workstations targeting file servers, especially from non-IT accounts.
 </details>
 
 ---
@@ -398,7 +398,7 @@ Recon scaled from one subnet to everything registered in the domain.
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+Alert on net view /domain or other domain-wide enumeration (net group /domain, nltest) from non-admin accounts.
 </details>
 
 ---
@@ -441,7 +441,7 @@ The recon was preparation for lateral movement, not idle curiosity.
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+Alert on arp -a followed by multiple nslookup calls across sequential IPs within minutes. Correlate with a new remote logon to a host in that range shortly after.
 </details>
 
 ---
@@ -483,7 +483,7 @@ This is the first clear evidence of activity in a workflow stage the role should
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+Map role to expected folders. Alert when a role touches a workflow stage downstream of its own (e.g., submissions account in Approved).
 </details>
 
 ---
@@ -526,7 +526,7 @@ It confirms data in a stage outside the role’s remit was in play.
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+Monitor access to approved or finalized records by accounts that only handle pending ones. Alert on out-of-stage file touches.
 </details>
 
 ---
@@ -568,7 +568,7 @@ Altering the oversight record undermines the mechanism built to catch this misus
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+Alert on any modification to audit or log folders by accounts outside the reviewer or service group. Consider making audit files append-only with file integrity monitoring.
 </details>
 
 ---
@@ -611,7 +611,7 @@ This is the clearest evidence of deliberate staging: payroll data hidden in a sh
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+Detect FileRenamed events with double extensions (.txt.txt) and files moved across department shares then renamed. Use PreviousFileName to find the origin.
 </details>
 
 ---
@@ -653,7 +653,7 @@ It widens the activity from one payroll grab to a sweep of HR content.
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+Alert when one account touches files across multiple unrelated department folders (HR, Billing) within a short window.
 </details>
 
 ---
@@ -696,7 +696,7 @@ DeviceLogonEvents
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+Alert on internal-source RemoteInteractive logons from a workstation to other workstations or servers, since workstations rarely RDP onward. Chain with prior external logons.
 </details>
 
 ---
@@ -736,7 +736,7 @@ DeviceProcessEvents
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+For every new remote landing, check whether hands-on activity followed. Landings with only profile-init processes are low risk, but keep them in the timeline as context.
 </details>
 
 ---
@@ -779,7 +779,7 @@ This is the attacker confirming what access their pivot actually bought them —
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+Alert on whoami /groups or /priv on servers, particularly as the first command after a remote logon.
 </details>
 
 ---
@@ -821,7 +821,7 @@ This maps every available data source on the file server, directly setting up th
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+Alert on net share or net view \\host run on file servers by non-admin accounts.
 </details>
 
 ---
@@ -864,7 +864,7 @@ DeviceFileEvents
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+Flag access to files named for another user (e.g., payroll_review_dpatel_*) by an account other than that user or an authorized role.
 </details>
 
 ---
@@ -907,7 +907,7 @@ DeviceFileEvents
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+Correlate file touches across multiple HR subfolders by one non-HR account within a single session. Count distinct HR files per account per day.
 </details>
 
 ---
@@ -950,7 +950,7 @@ Remediation is credential reset and access review, not malware eradication. Writ
 
 **Hunting Tip:**  
 <Actionable guidance for defenders>
-
+Combine signals: external source IP plus native-tool-only activity plus zero dropped binaries. Build a living-off-the-land detection that scores sequences of discovery then collection by a single account.
 </details>
 
 <!-- Duplicate Flag 1 section for Flags 2–20 -->

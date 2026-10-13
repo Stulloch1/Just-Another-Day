@@ -839,10 +839,10 @@ A payroll review belonging to d.patel, the approval-queue user, opened by the bi
 | Field | Value |
 |------|-------|
 | Host | nh-fs-01.corp.nimbushealth.com |
-| Timestamp | <Placeholder> |
-| Process | <Placeholder> |
-| Parent Process | <Placeholder> |
-| Command Line | <Placeholder> |
+| Timestamp | Final file-server action |
+| File | payroll_review_dpatel_20260311.txt |
+| Owner | d.patel |
+| Account | j.morris |
 
 ### 💡 Why it matters
 The collection crossed individual employee and department boundaries, increasing privacy impact.
